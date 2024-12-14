@@ -91,7 +91,7 @@ If you want to use a [joystick](https://www.logitechg.com/en-hk/products/gamepad
 
 To start mapping:
 
-- Click '2D Nav Goal'.
+- Click '2D Goal Pose'.
 - Click and drag at the position you want the robot to go.
 
    ![champ](https://raw.githubusercontent.com/chvmp/champ/master/docs/images/slam.gif)
@@ -104,6 +104,9 @@ To start mapping:
 After this, you can use the new_map to do pure navigation.
 
 ### 2.3 Autonomous Navigation:
+#### Aditional step to use object detection:
+To include the object detection node using YOLOv8 follow the installation step from [ROS2_fundamentals](https://github.com/smilagros246/ROS2_fundamentals.git)
+
 
 #### 2.3.1 Run the Gazebo environment: 
 
