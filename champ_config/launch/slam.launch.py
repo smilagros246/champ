@@ -18,6 +18,7 @@ from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription
 from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch_ros.substitutions import FindPackageShare
+from launch_ros.actions import Node
 
 
 def generate_launch_description():
@@ -32,6 +33,7 @@ def generate_launch_description():
     )
 
     return LaunchDescription([
+        
         DeclareLaunchArgument(
             name='slam_params_file',
             default_value=default_params_file_path,
@@ -43,12 +45,15 @@ def generate_launch_description():
             default_value='false',
             description='Enable use_sime_time to true'
         ),
+        
 
         DeclareLaunchArgument(
             name='rviz', 
             default_value='false',
             description='Run rviz'
         ),
+        
+        
 
         IncludeLaunchDescription(
             PythonLaunchDescriptionSource(slam_launch_path),

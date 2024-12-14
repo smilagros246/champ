@@ -18,13 +18,14 @@ from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription
 from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch_ros.substitutions import FindPackageShare
+from launch_ros.actions import Node
 
 
 def generate_launch_description():
     this_package = FindPackageShare('champ_config')
 
     default_map_path = PathJoinSubstitution(
-        [this_package, 'maps', 'map.yaml']
+        [this_package, 'maps', 'new_map.yaml']
     )
 
     default_params_file_path = PathJoinSubstitution(
@@ -34,8 +35,15 @@ def generate_launch_description():
     nav2_launch_path = PathJoinSubstitution(
         [FindPackageShare('champ_navigation'), 'launch', 'navigate.launch.py']
     )
+    
 
     return LaunchDescription([
+        
+        Node(
+            package='prueba_robotics4_0',  
+            executable='object_detection',  
+            name='object_detection_node',
+        ),
         DeclareLaunchArgument(
             name='map', 
             default_value=default_map_path,
